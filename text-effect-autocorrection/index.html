@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="baidu-site-verification" content="Nq1r6bK7kR" />
+    <meta name="google-site-verification" content="yl1DuniDzb9FMXWXN9J3ZI8MLMkMJPe6yNIPO8SCqZY" />
+    <title>Text-effect-autocorrection by he-yang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Text-effect-autocorrection</h1>
+      <h2 class="project-tagline">A Microsoft Word Text Effects AutoCorrection Add-In</h2>
+      <a href="./index-zh.html" class="btn">中文版</a>
+      <a href="http://blog.wtsolutions.cn/archives/category/text-effects-autocorrection" class="btn">WTSolutions Blog</a>
+      <a href="https://github.com/he-yang/text-effect-autocorrection" class="btn">View on GitHub</a>
+      <a href="https://github.com/he-yang/text-effect-autocorrection/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/he-yang/text-effect-autocorrection/tarball/master" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <h3>
+<a id="Introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h3>
+<p>Text-Effect-AutoCorrection is a Microsoft Word add-In and it can correct sub/super scripts, upper/lower case typos using built databases. What this add-in acturally do is simply find and replace.</p>
+<table align="center">
+	<tbody>
+		<tr>
+			<th>Original</th>
+			<td>cod</td>
+			<td>H2O</td>
+			<td>m3/d</td>
+			<td>PO43-</td>
+			<td>dn300</td>
+			<td>5KW</td>
+			<td>CODMn</td>
+		</tr>
+		<tr>
+			<th>Corrected</th>
+			<td>COD</td>
+			<td>H<sub>2</sub>O</td>
+			<td>m<sup>3</sup>/d</td>
+			<td>PO<sub>4</sub><sup>3-</sup></td>
+			<td>DN300</td>
+			<td>5kW</td>
+			<td>COD<sub>Mn</sub></td>
+		</tr>
+	</tbody>
+</table>
+
+<h3>
+<a id="Requirement" class="anchor" href="#Requirement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirement</h3>
+<p>Word 2016 or greater</p>
+
+<h3>
+<a id="Usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
+
+<p> There are two ways to use this add-in</p>
+<p> A. Via Office Store (pending)</p>
+<ol>
+  <li>Launch Microsoft Word 2016(or newer)</li>
+  <li>Open a new document or an exisiting document.</li>
+  <li>Go to Insert Tab and find "Office add-in"</li>
+  <li>Search 'text effects autocorrection' from Office Store</li>
+  <li>Add this add-in to your Word</li>
+</ol>
+<p> B. Via Shared Folder</p>
+<ol>
+	<li>Create a folder on a network share, for example <code>\\MyShare\MyManifests</code>.</li>
+	<li>Put the <a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/manifest.xml">manifest file</a> in this file share.</li>
+	<li>Open a new document in Word 2016 (or newer).</li>
+	<li>Choose the File tab, and then choose Options.</li>
+	<li>Choose Trust Center, and then choose the Trust Center Settings button.</li>
+	<li>Choose Trusted Add-in Catalogs.</li>
+	<li>In the Catalog Url box, enter the path to the network share you created in Step 1, and then choose Add Catalog.</li>
+	<li>Select the Show in Menu check box, and then choose OK.</li>
+	<li>After performing these steps, you can select My Add-ins on the Insert tab of the ribbon and then choose Shared Folder at the top of the Office Add-ins dialog box to insert a task pane or content add-in from this catalog.</li>
+</ol>
+
+<h3>
+<a id="databases" class="anchor" href="#databases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Databases</h3>
+
+<p>Currently, databases included are as follows</p>
+<ul>
+	<li>Standard</li>
+	<li>Chemical</li>
+	<li>Units</li>
+    <li>Water and Wastewater engineering</li>
+</ul>
+Database file can be found <a href="https://github.com/he-yang/text-effect-autocorrection/tree/master/databases">here</a>
+<p></p>
+
+<h4>
+<a id="Create your own database" class="anchor" href="#creat-your-own-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create your own database</h4>
+
+<p>The great thing of this add-in is that you can create your own database, and share it with anyone else if you'd like to.</p>
+<p>A database is a javascript object or JSON file, Microsoft Word will search strings match certain pattern and replace them to correct forms.</p>
+<p><b>Example 0</b></p>
+  <ul>
+    <li><code> {s1:"cod",s1Opt:{},to:"COD"}</code></li>
+    <li><code> {s1:"[dD][nN][0-9]", s1Opt:{matchWildCards:true}, s2:"dn", s2Opt:{matchCase:false}, to:"DN"}</code> </li>
+  </ul>
+ <p>In Example 0, you can see 5 keys : "s1" "s1Opt" "s2" "s2Opt" "to".</p> 
+<h5>Key1:s1(search 1) | String type | Mandatory</h5>
+<p>Options are exactly the same with Microsoft Word "search" options. Note that, several other options for instance, matchCase can not be checked when matchWildCards checked. </p>
+<p><b>Example s1.1</b><code> {s1:"cod",s1Opt:{matchCase:true},to:"COD"}</code></p>
+<p>In Example s1.1, this add-in will search lower case "cod" in Word document and replace "cod" with "COD", note "cOd" or "Cod" will <em>not</em> be replaced.</p>
+<h5>Key2:s1Opt(search 1 options) | Object type | Mandatory</h5>
+<p></p>
+<p><b>Example s1Opt.1</b><code>{s1:"cod",s1Opt:{matchCase:false},to:"COD"}</code></p>
+<p>In Example s1Opt.1, this add-in will case insensitively search "cod" in Word document and replace "cod" with "COD", note "cOd" and "Cod" will <em>also</em> be replaced.</p>
+<p><b>Example s1Opt.2</b><code>{s1:"[cC][oO][dD]",s1Opt:{matchWildCards:true},to:"COD"}</code></p>
+<p>Example s1Opt.2 is more or less the same with Example s1Opt.1, it will also case insensitively search "cod" and replace "cod" with "COD" but in a different manner. This example take advantages of wildcards search of Word. If you want to know more about wildcard search in Word, see <a href="https://support.office.com/en-us/article/Use-wildcard-characters-to-find-or-replace-text-610E37DC-BB2F-4A8B-8FA5-AA991160EAFB">here</a>. </p>
+<p></p>
+
+
+
+<p>
+	<table>
+		<caption>Accepted Options</caption>
+		<tbody>
+			<tr class="header">
+				<th align="left">
+					Option Key
+				</th>
+				<th align="left">
+					Option Value
+				</th>
+				<th align="left">
+					Description
+				</th>
+			</tr>
+			<tr class="odd">
+				<td align="left">
+					ignorePunct
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					Gets or sets a value that indicates whether to ignore all punctuation characters between words. Corresponds to the Ignore punctuation check box in the Find and Replace dialog box.
+				</td>
+			</tr>
+			<tr class="even">
+				<td align="left">
+					ignoreSpace
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					Gets or sets a value that indicates whether to ignore all white space between words. Corresponds to the Ignore white-space characters check box in the Find and Replace dialog box.
+				</td>
+			</tr>
+			<tr class="odd">
+				<td align="left">
+					matchCase
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					Gets or sets a value that indicates whether to perform a case sensitive search. Corresponds to the Match case check box in the Find and Replace dialog box (Edit menu).
+				</td>
+			</tr>
+			<tr class="even">
+				<td align="left">
+					matchPrefix
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					Gets or sets a value that indicates whether to match words that begin with the search string. Corresponds to the Match prefix check box in the Find and Replace dialog box.
+				</td>
+			</tr>
+			<tr class="odd">
+				<td align="left">
+					matchSoundsLike
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					Gets or sets a value that indicates whether to find words that sound similar to the search string. Corresponds to the Sounds like check box in the Find and Replace dialog box
+				</td>
+			</tr>
+			<tr class="even">
+				<td align="left">
+					matchSuffix
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					Gets or sets a value that indicates whether to match words that end with the search string. Corresponds to the Match suffix check box in the Find and Replace dialog box.
+				</td>
+			</tr>
+			<tr class="odd">
+				<td align="left">
+					matchWholeWord
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					Gets or sets a value that indicates whether to find operation only entire words, not text that is part of a larger word. Corresponds to the Find whole words only check box in the Find and Replace dialog box.
+				</td>
+			</tr>
+			<tr class="even">
+				<td align="left">
+					matchWildCards
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					Gets or sets a value that indicates whether the search will be performed using special search operators. Corresponds to the Use wildcards check box in the Find and Replace dialog box.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</p>
+
+
+<h5>Key3:s2 | String type | Optional</h5>
+<p>This add-in will search "s1" first with "s1Opt" option, and if "s2" present, add-in will search "s2" from "s1" search results. </p>
+<p>Example s2.1</p>
+<p><code> {s1:"[dD][nN][0-9]", s1Opt:{matchWildCards:true}, s2:"dn", s2Opt:{matchCase:false}, to:"DN"}</code></p>
+<p>Add-in will first search for "[dD][nN][0-9]" using wildcards match, if found, this add-in will then search for "dn" case insensitively from previously found results, and replace it with "DN".</p>
+<p></p>
+<h5>Key4:s2Opt | Object type | Optional</h5>
+<p>See Key2:s1Opt, but this one optional.</p>
+
+<h5>Key5:to | String type | Mandatory</h5>
+<p>Replace "s1" or "s2" with "to" or format "s1" or "s2" as super/subscript.</p>
+<p>Note, "superscript" and "subscript" are reserved strings in this add-in.</p>
+<p>Example to.1</p>
+<p><code> {s1:"[dD][nN][0-9]", s1Opt:{matchWildCards:true}, s2:"dn", s2Opt:{matchCase:false}, to:"DN"}</code></p>
+<p><code> dn100 ---> DN100 | Dn20 ---> DN20</code></code></code></p>
+<p>Add-in will first search for "[dD][nN][0-9]" using wildcards match, if found, this add-in will then search for "dn" case insensitively from previously found results, and replace it with "DN".</p>
+<p></p>
+<p>Example to.2</p>
+<p><code> {s1:"m3/d", s1Opt:{}, s2:"3", s2Opt:{}, to:"superscript"}</code></p>
+<p><code> m3/d ---> m<sup>3</sup>/d</code></code></code></p>
+<p>Add-in will first search for "m3/d", if found, this add-in will then search for "3" from previously found results, and format "3" as "superscript".</p>
+<p>Note, currently, only "subscript" and "superscripts" are accepted format indicator, other strings will be treated as normal strings and works as Example to.1 .</p></p>
+<p></p>
+
+  
+  
+
+
+<h3>
+<a id="privacy" class="anchor" href="#privary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Privacy</h3>
+
+<p>Text-Effects-AutoCorrection Add-In will not collect and/or transmit user information. As the Text-Effects-AutoCorrection is an open-source project, you may check source code if you want, click the above "view on Github" button for more inforamtion.Baidu Tongji (similar to Google analytics) scripts is added for website analytics. </p>
+
+ <h3>
+<a id="disclaimer" class="anchor" href="#disclaimer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Disclaimer</h3>
+
+<p>Use at your own risk. Backup your documents before using this add-in.Text-Effects-AutoCorrection Add-In may still contain bugs .  </p>
+
+
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>Text-Effects-AutoCorrection is created and currently being maintained by <a href="https://github.com/he-yang" class="user-mention">@he-yang</a> , if you are interested in contributing to this add-in, pull a request (e.g. improve code, share your database, make translation), or simply send an email to he.yang at wtsolutions.cn </p>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+
+
+<p>Still have questions? Please report <a href="https://github.com/he-yang/text-effect-autocorrection/issues">here</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/he-yang/text-effect-autocorrection">Text-effect-autocorrection</a> is maintained by <a href="https://github.com/he-yang">he-yang</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?00195c4e233349e692de38c1a46162e4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+  </body>
+</html>
