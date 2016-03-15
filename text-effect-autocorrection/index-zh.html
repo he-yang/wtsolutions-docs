@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOC类型 html>
 <html lang="zh-cn">
   <head>
     <meta charset="UTF-8">
@@ -6,10 +6,10 @@
     <meta name="google-site-verification" content="yl1DuniDzb9FMXWXN9J3ZI8MLMkMJPe6yNIPO8SCqZY" />
     <title>Text-effect-autocorrection by he-yang</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" 类型="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' 类型='text/css'>
+    <link rel="stylesheet" 类型="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" 类型="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
     <section class="page-header">
@@ -63,17 +63,17 @@
 
 <p> 使用方法有2种</p>
 <p> A. 通过微软Office商店 </p>
-<p>链接https://store.office.com/-WA104379996.aspx</p>
+<p>链接https://store.office.com/app.aspx?assetid=WA104379996&appredirect=false&omkt=zh-CN</p>
 <ol>
   <li>点击上面链接，打开本插件在微软Office商店的页面</li>
   <li>在页面右上角点击登录</li>
   <li>使用你的微软体系的账户进行登录</li>
   <li>找到页面上的“添加”按钮，并点击</li>
-  <li>页面会提示说已经成功添加这个插件到你的微软账户</li>
+  <li>页面会提示说已经成功添加这个插件到你的微软账户，如msn,outlook,live账户，如果没有微软账户可以注册一个。</li>
   <li>打开电脑上的 Microsoft Word 2016(或更高级版本)</li>
   <li>打开一个文档或新建一个文档</li>
   <li>在Word的右上角点击登录</li>
-  <li>使用你的微软体系的账户进行登录</li>
+  <li>用你刚刚用到的微软体系的账户进行登录</li>
   <li>在Word的“插入”标签页内找到 "我的加载项"</li>
   <li>此刻你应当看到“文字效果自动纠正”插件</li>
   <li>如果你看不到这个插件，请检查是不是正确的登录了微软账户，或者查看自己是不是在使用本插件不支持的Word2013版本</li>
@@ -110,40 +110,40 @@
 
 <p>本插件支持自定义数据库，如果你愿意，还可以将自荐数据库共享给其他人。</p>
 <p>此段暂时没有翻译，如果你愿意帮助翻译，可以联系我们。</p>
-<p>A database is a javascript object or JSON file, Microsoft Word will search strings match certain pattern and replace them to correct forms.</p>
-<p><b>Example 0</b></p>
+<p>本插件的数据库是javascript的object格式或json格式, Word会搜索数据库中列出的项，然后替换成合适的形式或内容。</p>
+<p><b>例 0</b></p>
   <ul>
     <li><code> {s1:"cod",s1Opt:{},to:"COD"}</code></li>
     <li><code> {s1:"[dD][nN][0-9]", s1Opt:{matchWildCards:true}, s2:"dn", s2Opt:{matchCase:false}, to:"DN"}</code> </li>
   </ul>
- <p>In Example 0, you can see 5 keys : "s1" "s1Opt" "s2" "s2Opt" "to".</p> 
-<h5>Key1:s1(search 1) | String type | Mandatory</h5>
-<p>Options are exactly the same with Microsoft Word "search" options. Note that, several other options for instance, matchCase can not be checked when matchWildCards checked. </p>
-<p><b>Example s1.1</b><code> {s1:"cod",s1Opt:{matchCase:true},to:"COD"}</code></p>
-<p>In Example s1.1, this add-in will search lower case "cod" in Word document and replace "cod" with "COD", note "cOd" or "Cod" will <em>not</em> be replaced.</p>
-<h5>Key2:s1Opt(search 1 options) | Object type | Mandatory</h5>
+ <p>例 0,你可以看到5个keys : "s1" "s1Opt" "s2" "s2Opt" "to".</p> 
+<h5>Key1:s1(search 1) | String 类型 | 必选</h5>
+<p>本插件所列出的这些选项与Word自带的搜索选项相同. 需要注意的是, 有一些选项, matchCase（匹配大小写） 选中时，matchWildCards（使用通配符） 则无法选择，这一点与Word本身自带的选项勾选规则是相同的. </p>
+<p><b>例 s1.1</b><code> {s1:"cod",s1Opt:{matchCase:true},to:"COD"}</code></p>
+<p>例 s1.1, 插件首先会查找小写的"cod" 然后将之替换成 "COD", 需要注意的是，本例中 "cOd" 和 "Cod" 不会被替换。</p>
+<h5>Key2:s1Opt(search 1 options) | Object 类型 | 必选</h5>
 <p></p>
-<p><b>Example s1Opt.1</b><code>{s1:"cod",s1Opt:{matchCase:false},to:"COD"}</code></p>
-<p>In Example s1Opt.1, this add-in will case insensitively search "cod" in Word document and replace "cod" with "COD", note "cOd" and "Cod" will <em>also</em> be replaced.</p>
-<p><b>Example s1Opt.2</b><code>{s1:"[cC][oO][dD]",s1Opt:{matchWildCards:true},to:"COD"}</code></p>
-<p>Example s1Opt.2 is more or less the same with Example s1Opt.1, it will also case insensitively search "cod" and replace "cod" with "COD" but in a different manner. This example take advantages of wildcards search of Word. If you want to know more about wildcard search in Word, see <a href="https://support.office.com/en-us/article/Use-wildcard-characters-to-find-or-replace-text-610E37DC-BB2F-4A8B-8FA5-AA991160EAFB">here</a>. </p>
+<p><b>例 s1Opt.1</b><code>{s1:"cod",s1Opt:{matchCase:false},to:"COD"}</code></p>
+<p>例 s1Opt.1, 插件会不区分大小写的去查找文中的"cod" 然后将之替换成"COD", 需要注意的是 本例中"cOd" 和 "Cod" 也会被替换。</p>
+<p><b>例 s1Opt.2</b><code>{s1:"[cC][oO][dD]",s1Opt:{matchWildCards:true},to:"COD"}</code></p>
+<p>例 s1Opt.2 与 例 s1Opt.1 类似, 插件会查找 "cod" 然后将之替换成 "COD" ，但是方式不同. 本例利用的是Word的通配符搜索功能. 如果你想要更多的了解Word通配符, 可查看<a href="https://support.office.com/zh-cn/article/%E4%BD%BF%E7%94%A8%E9%80%9A%E9%85%8D%E7%AC%A6%E6%9F%A5%E6%89%BE%E6%88%96%E6%9B%BF%E6%8D%A2%E6%96%87%E6%9C%AC-610E37DC-BB2F-4A8B-8FA5-AA991160EAFB?omkt=zh-CN&ui=zh-CN&rs=zh-CN&ad=CN">这里</a>. </p>
 <p></p>
 
 
 
 <p>
 	<table>
-		<caption>Accepted Options</caption>
+		<caption>选项</caption>
 		<tbody>
 			<tr class="header">
 				<th align="left">
-					Option Key
+					选项 Key
 				</th>
 				<th align="left">
-					Option Value
+					选项 Value
 				</th>
 				<th align="left">
-					Description
+					描述
 				</th>
 			</tr>
 			<tr class="odd">
@@ -154,7 +154,7 @@
 					true/false
 				</td>
 				<td align="left">
-					Gets or sets a value that indicates whether to ignore all punctuation characters between words. Corresponds to the Ignore punctuation check box in the Find and Replace dialog box.
+					获取或设置指示是否忽略单词之间的所有标点符号的值。对应于"查找和替换"对话框中的"忽略标点符号"复选框。
 				</td>
 			</tr>
 			<tr class="even">
@@ -165,7 +165,7 @@
 					true/false
 				</td>
 				<td align="left">
-					Gets or sets a value that indicates whether to ignore all white space between words. Corresponds to the Ignore white-space characters check box in the Find and Replace dialog box.
+					获取或设置指示是否忽略单词之间的所有空格的值。对应于"查找和替换"对话框中的"忽略空格字符"复选框。
 				</td>
 			</tr>
 			<tr class="odd">
@@ -176,7 +176,7 @@
 					true/false
 				</td>
 				<td align="left">
-					Gets or sets a value that indicates whether to perform a case sensitive search. Corresponds to the Match case check box in the Find and Replace dialog box (Edit menu).
+					获取或设置指示是否执行区分大小写的搜索的值。对应于"查找和替换"对话框（"编辑"菜单）中的"区分大小写"复选框。
 				</td>
 			</tr>
 			<tr class="even">
@@ -187,7 +187,7 @@
 					true/false
 				</td>
 				<td align="left">
-					Gets or sets a value that indicates whether to match words that begin with the search string. Corresponds to the Match prefix check box in the Find and Replace dialog box.
+					获取或设置指示是否匹配以搜索字符串开头的单词。对应于"查找和替换"对话框中的"匹配前缀"复选框。
 				</td>
 			</tr>
 			<tr class="odd">
@@ -198,7 +198,7 @@
 					true/false
 				</td>
 				<td align="left">
-					Gets or sets a value that indicates whether to find words that sound similar to the search string. Corresponds to the Sounds like check box in the Find and Replace dialog box
+					获取或设置指示是否查找读音与搜索字符串类似的单词。对应于"查找和替换"对话框中的"读音类似"复选框。
 				</td>
 			</tr>
 			<tr class="even">
@@ -209,7 +209,7 @@
 					true/false
 				</td>
 				<td align="left">
-					Gets or sets a value that indicates whether to match words that end with the search string. Corresponds to the Match suffix check box in the Find and Replace dialog box.
+					获取或设置指示是否匹配以搜索字符串结尾的单词。对应于"查找和替换"对话框中的"匹配后缀"复选框。
 				</td>
 			</tr>
 			<tr class="odd">
@@ -220,7 +220,7 @@
 					true/false
 				</td>
 				<td align="left">
-					Gets or sets a value that indicates whether to find operation only entire words, not text that is part of a larger word. Corresponds to the Find whole words only check box in the Find and Replace dialog box.
+					获取或设置指示是否只查找整个单词，而不查找长单词的一部分的值。对应于"查找和替换"对话框中的"全字匹配"复选框。
 				</td>
 			</tr>
 			<tr class="even">
@@ -231,7 +231,8 @@
 					true/false
 				</td>
 				<td align="left">
-					Gets or sets a value that indicates whether the search will be performed using special search operators. Corresponds to the Use wildcards check box in the Find and Replace dialog box.
+					获取或设置指示搜索是否使用特殊搜索操作符执行的值。对应于"查找和替换"对话框中的"使用通配符"复选框。
+
 				</td>
 			</tr>
 		</tbody>
@@ -239,28 +240,28 @@
 </p>
 
 
-<h5>Key3:s2 | String type | Optional</h5>
-<p>This add-in will search "s1" first with "s1Opt" option, and if "s2" present, add-in will search "s2" from "s1" search results. </p>
-<p>Example s2.1</p>
+<h5>Key3:s2 | String 类型 | 可选</h5>
+<p>插件最先搜索 "s1" ，采用的选项是 "s1Opt" , 如果 "s2" key 也存在 , 插件会从"s1"的搜索结果中再去搜索 "s2". </p>
+<p>例 s2.1</p>
 <p><code> {s1:"[dD][nN][0-9]", s1Opt:{matchWildCards:true}, s2:"dn", s2Opt:{matchCase:false}, to:"DN"}</code></p>
-<p>Add-in will first search for "[dD][nN][0-9]" using wildcards match, if found, this add-in will then search for "dn" case insensitively from previously found results, and replace it with "DN".</p>
+<p>插件首先会去查找 "[dD][nN][0-9]" 通配符, 如果找到，插件会在刚刚的搜索结果中去忽略大小写的查找 "dn" , 然后替换成"DN".</p>
 <p></p>
-<h5>Key4:s2Opt | Object type | Optional</h5>
-<p>See Key2:s1Opt, but this one optional.</p>
+<h5>Key4:s2Opt | Object 类型 | 可选</h5>
+<p>参见 Key2:s1Opt, 但此项可选.</p>
 
-<h5>Key5:to | String type | Mandatory</h5>
-<p>Replace "s1" or "s2" with "to" or format "s1" or "s2" as super/subscript.</p>
-<p>Note, "superscript" and "subscript" are reserved strings in this add-in.</p>
-<p>Example to.1</p>
+<h5>Key5:to | String 类型 | 必选</h5>
+<p>替换 "s1" 成"to"，当"s2"存在时，则将"s2"替换成 "to"，或者 将 "s1" 或者 "s2" 设成上标superscript/下标 subscript格式。</p>
+<p>注意，superscript和subscript在本插件中是保留字符串，当你使用到这两个字符串时应特别注意。</p>
+<p>例 to.1</p>
 <p><code> {s1:"[dD][nN][0-9]", s1Opt:{matchWildCards:true}, s2:"dn", s2Opt:{matchCase:false}, to:"DN"}</code></p>
-<p><code> dn100 ---> DN100 | Dn20 ---> DN20</code></code></code></p>
-<p>Add-in will first search for "[dD][nN][0-9]" using wildcards match, if found, this add-in will then search for "dn" case insensitively from previously found results, and replace it with "DN".</p>
+<p>效果<code> dn100 ---> DN100 | Dn20 ---> DN20</code></code></code></p>
+<p>插件会首先查找 "[dD][nN][0-9]" 通配符, 如果找到，会在找到的结果当中去 再次忽略大小写的去查找"dn" 然后替换成 "DN".</p>
 <p></p>
-<p>Example to.2</p>
+<p>例 to.2</p>
 <p><code> {s1:"m3/d", s1Opt:{}, s2:"3", s2Opt:{}, to:"superscript"}</code></p>
-<p><code> m3/d ---> m<sup>3</sup>/d</code></code></code></p>
-<p>Add-in will first search for "m3/d", if found, this add-in will then search for "3" from previously found results, and format "3" as "superscript".</p>
-<p>Note, currently, only "subscript" and "superscripts" are accepted format indicator, other strings will be treated as normal strings and works as Example to.1 .</p></p>
+<p>效果<code> m3/d ---> m<sup>3</sup>/d</code></code></code></p>
+<p>插件首先会去查找 "m3/d", 如果找到了, 插件会从找到的结果当中去查找 "3" 然后将 "3" 的格式调整成superscript上标.</p>
+<p>注意：只有 "subscript" 和 "superscript" 可以被接受作为格式的指示文本, 其他的文本将会当作普通文本对待，如 例 to.1 .</p></p>
 <p></p>
 
 
