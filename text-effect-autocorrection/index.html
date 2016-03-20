@@ -26,7 +26,7 @@
     <section class="main-content">
       <h3>
 <a id="Introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h3>
-<p>Text-Effect-AutoCorrection is a Microsoft Word add-In and it can correct sub/super scripts, upper/lower case typos using built databases. What this add-in acturally do is simply find and replace.</p>
+<p>Text-Effect-AutoCorrection is a Microsoft Word add-In and it can correct sub/super scripts, upper/lower case typos using built-in/user-provided databases. What this add-in acturally do is simply find and replace.</p>
 <table align="center">
 	<tbody>
 		<tr>
@@ -94,19 +94,28 @@
 
 <p>Currently, databases included are as follows</p>
 <ul>
+	<li>----Built-in Databases----</li>
 	<li>Standard</li>
 	<li>Chemical</li>
 	<li>Units</li>
     <li>Water and Wastewater engineering</li>
+	<li>----User-Provided Databases----</li>
+	<li>User Defined</li>
+	<li>User Provided</li>
 </ul>
-Database file can be found <a href="https://github.com/he-yang/text-effect-autocorrection/tree/master/databases">here</a>
+Built-in Database file can be found <a href="https://github.com/he-yang/text-effect-autocorrection/tree/master/databases">here</a>
 <p></p>
 
 <h4>
-<a id="Create your own database" class="anchor" href="#creat-your-own-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create your own database</h4>
+<a id="create your own database" class="anchor" href="#create-your-own-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create your own database</h4>
 
-<p>The great thing of this add-in is that you can create your own database, and share it with anyone else if you'd like to.</p>
+<p>The great thing of this add-in is that you can define/provide your own database, and share it with anyone else if you'd like to.</p>
+<p>If you don't think the built-in databases are good enough for you, don't worry, you can to create your own databases, and creating a new database is easy.</p>
+<p>1. Define a new database using tools provided by text-effect-autocorrection add-in. Check the "user defined" checkbox, and you can see it.</p>
+<p>2. Provide a valid database if you know how to one. Check the "user provided" checkbox, and a textarea which can accept your database will appear.</p>
 <p>A database is a javascript object or JSON file, Microsoft Word will search strings match certain pattern and replace them to correct forms.</p>
+<p>A user provided database should follow this <a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/dbSchema.json">schema</a>. Note, this schema is still incomplete, we are still working on it.</p>
+<p>Here are some examples</p>
 <p><b>Example 0</b></p>
   <ul>
     <li><code> {s1:"cod",s1Opt:{},to:"COD"}</code></li>
@@ -242,7 +251,7 @@ Database file can be found <a href="https://github.com/he-yang/text-effect-autoc
 <p>Add-in will first search for "[dD][nN][0-9]" using wildcards match, if found, this add-in will then search for "dn" case insensitively from previously found results, and replace it with "DN".</p>
 <p></p>
 <h5>Key4:s2Opt | Object type | Optional</h5>
-<p>See Key2:s1Opt, but this one optional.</p>
+<p>See Key2:s1Opt, but this one optional. Note, if "s2" is present, "s2Opt" then become mandatory.</p>
 
 <h5>Key5:to | String type | Mandatory</h5>
 <p>Replace "s1" or "s2" with "to" or format "s1" or "s2" as super/subscript.</p>
