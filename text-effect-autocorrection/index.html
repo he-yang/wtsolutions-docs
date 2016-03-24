@@ -25,7 +25,7 @@
 
     <section class="main-content">
       <h3>
-<a id="Introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h3>
+<a id="Introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.Introduction</h3>
 <p>Text-Effect-AutoCorrection is a Microsoft Word add-In and it can correct sub/super scripts, upper/lower case typos using built-in/user-provided databases. What this add-in acturally do is simply find and replace.</p>
 <table align="center">
 	<tbody>
@@ -53,11 +53,13 @@
 </table>
 
 <h3>
-<a id="Requirement" class="anchor" href="#Requirement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirement</h3>
-<p>Word 2016 or greater</p>
+<a id="Requirement" class="anchor" href="#Requirement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.Requirements</h3>
+<p>Word 2016 or greater on Windows system</p>
+<p>Word for Mac has not yet been tested</p>
+<p>Word Online is not supported</p>
 
 <h3>
-<a id="Usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
+<a id="Usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.Usage</h3>
 
 <p> There are two ways to use this add-in</p>
 <p> A. Via Office Store</p>
@@ -79,7 +81,7 @@
 <p> B. Via Shared Folder</p>
 <ol>
 	<li>Create a folder on a network share, for example <code>\\MyShare\MyManifests</code>.</li>
-	<li>Put the <a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/manifest.xml">manifest file</a> in this file share.</li>
+	<li>Put the <a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/text-effects-autocorrection.xml">manifest file</a> in this file share.</li>
 	<li>Open a new document in Word 2016 (or newer).</li>
 	<li>Choose the File tab, and then choose Options.</li>
 	<li>Choose Trust Center, and then choose the Trust Center Settings button.</li>
@@ -90,7 +92,7 @@
 </ol>
 
 <h3>
-<a id="databases" class="anchor" href="#databases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Databases</h3>
+<a id="databases" class="anchor" href="#databases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.Databases</h3>
 
 <p>Currently, databases included are as follows</p>
 <ul>
@@ -103,19 +105,25 @@
 	<li>User Defined</li>
 	<li>User Provided</li>
 </ul>
-Built-in Database file can be found <a href="https://github.com/he-yang/text-effect-autocorrection/tree/master/databases">here</a>
-<p></p>
 
+<p></p>
 <h4>
-<a id="create your own database" class="anchor" href="#create-your-own-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create your own database</h4>
+<a  class="anchor"  aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.1 Built-in database</h4>
+Currently, there are several built-in databases, standard,chemical ,unit, water and wastewater engineering. Built-in Database file can be found <a href="https://github.com/he-yang/text-effect-autocorrection/tree/master/databases">here</a>
+<h4>
+<a  class="anchor"  aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.2 User defined/provided database</h4>
+
 
 <p>The great thing of this add-in is that you can define/provide your own database, and share it with anyone else if you'd like to.</p>
 <p>If you don't think the built-in databases are good enough for you, don't worry, you can to create your own databases, and creating a new database is easy.</p>
-<p>1. Define a new database using tools provided by text-effect-autocorrection add-in. Check the "user defined" checkbox, and you can see it.</p>
-<p>2. Provide a valid database if you know how to one. Check the "user provided" checkbox, and a textarea which can accept your database will appear.</p>
+<p>1. Define a new database using tools provided by text-effect-autocorrection add-in. Check the "user defined" checkbox, and you can see it.You can also export your defined database and save it for later use.</p>
+<p>2. Provide a valid database if you know how to make one. Check the "user provided" checkbox, and a textarea which can accept your database will appear.</p>
+
+<h4>
+<a  class="anchor"  aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3 How database works</h4>
 <p>A database is a javascript object or JSON file, Microsoft Word will search strings match certain pattern and replace them to correct forms.</p>
 <p>A user provided database should follow this <a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/dbSchema.json">schema</a>. Note, this schema is still incomplete, we are still working on it.</p>
-<p>Here are some examples</p>
+<p>Here are some examples, and these examples are in javascript object format. If you are not familiar with javascript or json, you may skip this section.</p>
 <p><b>Example 0</b></p>
   <ul>
     <li><code> {s1:"cod",s1Opt:{},to:"COD"}</code></li>
@@ -273,24 +281,24 @@ Built-in Database file can be found <a href="https://github.com/he-yang/text-eff
 
 
 <h3>
-<a id="privacy" class="anchor" href="#privary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Privacy</h3>
+<a id="privacy" class="anchor" href="#privary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.Privacy</h3>
 
 <p>Text-Effects-AutoCorrection Add-In will not collect and/or transmit user information. As the Text-Effects-AutoCorrection is an open-source project, you may check source code if you want, click the above "view on Github" button for more inforamtion.Baidu Tongji (similar to Google analytics) scripts is added for website analytics. </p>
 
  <h3>
-<a id="disclaimer" class="anchor" href="#disclaimer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Disclaimer</h3>
+<a id="disclaimer" class="anchor" href="#disclaimer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.Disclaimer</h3>
 
 <p>Use at your own risk. Backup your documents before using this add-in.Text-Effects-AutoCorrection Add-In may still contain bugs .  </p>
 
 
 
 <h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7.Authors and Contributors</h3>
 
 <p>Text-Effects-AutoCorrection is created and currently being maintained by <a href="https://github.com/he-yang" class="user-mention">@he-yang</a> , if you are interested in contributing to this add-in, pull a request (e.g. improve code, share your database, make translation), or simply send an email to he.yang at wtsolutions.cn </p>
 
 <h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.Support or Contact</h3>
 
 
 
