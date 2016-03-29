@@ -56,29 +56,30 @@
 <a id="Requirement" class="anchor" href="#Requirement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.Requirements</h3>
 <p>Word 2016 or greater on Windows system</p>
 <p>Word for Mac has not yet been tested</p>
-<p>Word Online is not supported</p>
+<p>Word Online is not supported at this moment, but we will work on it.</p>
 
 <h3>
 <a id="Usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.Usage</h3>
-
-<p> There are two ways to use this add-in</p>
-<p> A. Via Office Store</p>
-<p>Link to Office Store https://store.office.com/-WA104379996.aspx </p>
+<h4>
+<a id="getaddin" class="anchor" ><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1 Get the add-in</h4>
+<p> There are two ways to get this add-in</p>
+<p> A. Via Office Store (Recommended for all users)</p>
+<p>Link to Office Store <a href='https://store.office.com/-WA104379996.aspx' target='_blank'>https://store.office.com/-WA104379996.aspx</a> </p>
 <ol>
 	<li>Click on the above link and, in the top right corner, click Sign in.</li>
 	<li>Type the email address and password you use with Office/Microsoft.</li>
 	<li>Click on the “add” button after login.</li>
 	<li>The next page you will see will show that you have successfully added this add-in to your account.</li>
 	<li>Now go to Word 2016.</li>
-	<li>Open Word 2016 (or greater) and, in the top right corner, click Sign in.</li>
+	<li>Open Word 2016 and, in the top right corner, click Sign in.</li>
 	<li>Type the email address and password you use with Office/Microsoft.</li>
-	<li>Press Insert > My Add-ins.</li>
+	<li>Insert Tab > My Add-ins.</li>
 	<li>In the Add-ins for Office box, find “text effects autocorrection”. If you don’t see it, verify that you’re signed into Office. Press Refresh to update the list.</li>
 	<li>If the add-in still doesn’t show up in the add-ins for Office list, check if you are using Word 2013 which is not supported by this add-in.</li>
 	<li>Double-click the add-in to start it.
 	<li>Now you are ready to use this add-in.
 </ol>
-<p> B. Via Shared Folder</p>
+<p> B. Via Shared Folder (Recommended for advanced users or developers)</p>
 <ol>
 	<li>Create a folder on a network share, for example <code>\\MyShare\MyManifests</code>.</li>
 	<li>Put the <a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/text-effects-autocorrection.xml">manifest file</a> in this file share.</li>
@@ -90,6 +91,10 @@
 	<li>Select the Show in Menu check box, and then choose OK.</li>
 	<li>After performing these steps, you can select My Add-ins on the Insert tab of the ribbon and then choose Shared Folder at the top of the Office Add-ins dialog box to insert a task pane or content add-in from this catalog.</li>
 </ol>
+<h4>
+<a id="useaddin" class="anchor" ><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2 Use the add-in</h4>
+
+From the above figure, you may see this add-in contains several parts.
 
 <h3>
 <a id="databases" class="anchor" href="#databases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.Databases</h3>
@@ -115,7 +120,7 @@ Currently, there are several built-in databases, standard,chemical ,unit, water 
 
 
 <p>The great thing of this add-in is that you can define/provide your own database, and share it with anyone else if you'd like to.</p>
-<p>If you don't think the built-in databases are good enough for you, don't worry, you can to create your own databases, and creating a new database is easy.</p>
+<p>If you don't think the built-in databases are good enough for you, don't worry, you can create your own databases, and creating one is easy.</p>
 <p>1. Define a new database using tools provided by text-effect-autocorrection add-in. Check the "user defined" checkbox, and you can see it.You can also export your defined database and save it for later use.</p>
 <p>2. Provide a valid database if you know how to make one. Check the "user provided" checkbox, and a textarea which can accept your database will appear.</p>
 
