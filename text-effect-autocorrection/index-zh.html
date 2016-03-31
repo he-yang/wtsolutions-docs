@@ -94,7 +94,7 @@
 	<li>在完成上述步骤之后, 在插入选项卡中，你可以选择 我的加载项中的 共享文件夹，然后找到本加载项并加载就可以了。</li>
 </ol>
 <h4><a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2 使用插件</h4>
-<img src="images/cn-screenshot-sections.png" />
+<img src="images/cn.jpg" alt='text-effect-autocorrection screenshot'/>
 <p>上图显示本插件可以被分为 A-F 区域.</p>
 <p>区 A: 插件名</p>
 <p>区 B: 插件简单介绍</p>
@@ -140,15 +140,17 @@
 
 
 <p>本插件接受用户提供数据库，如果你愿意，还可以将你的数据库共享给其他人。</p>
-<p>使用本插件提供的“用户提供数据库”功能，使用你自己编写的数据库。你编写的数据库 必须符合这个json schema规范(<a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/dbSchema.json">点这里</a>)，否则就会出错哦。注意，我们现在还在不断的改进这个规范。</p>
+
 <p>勾选上“用户提供数据库”，然后你就会看见一个文本框，将你的数据库放到这个文本框中就可以了。</p>
 <p>你可以自己写数据库文件，也可以用“用户自定义数据库工具”导出的数据库，如果你采用导出的数据库，只需要将"userDefined"这几个字改成"userProvided"就可以了。</p>
+<p><table><tr><th>{<span style="color:yellow;background:grey">"userDefined"</span>:[{"s1":"water","s1Opt":{},"s2":"at","s2Opt":{},"to":"@"}]}</th><th>></th></th><th>{<span style="color:yellow;background:grey">"userProvided"</span>:[{"s1":"water","s1Opt":{},"s2":"at","s2Opt":{},"to":"@"}]}</th></tr></table></p>
 
+<p>使用本插件提供的“用户提供数据库”功能，使用你自己编写的数据库。你编写的数据库 必须符合这个json schema规范(<a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/dbSchema.json">点这里</a>)，否则就会出错哦。注意，我们现在还在不断的改进这个规范。</p>
 
 
 <h4><a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.4 数据库的工作方式及基本原理</h4>
 <p>本插件的数据库是javascript的object格式或json格式, Word会搜索数据库中列出的项，然后替换成合适的形式或内容。</p>
-<p>下列的例子是采用的javascript Object格式，如果你分不清什么是javascript，什么是object，什么是json，那么你可以选择跳过此章节。</p>
+<p>下列的例子是采用的javascript Object格式。</p>
 <p><b>例 0</b></p>
   <ul>
     <li><code> {s1:"cod",s1Opt:{},to:"COD"}</code></li>

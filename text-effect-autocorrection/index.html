@@ -93,7 +93,7 @@
 </ol>
 <h4>
 <a id="useaddin" class="anchor" ><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2 Use the add-in</h4>
-<img src='images/en-screenshot-sections.png' alt='text-effect-autocorrection screenshot'/>
+<img src='images/en.jpg' alt='text-effect-autocorrection screenshot'/>
 <p>From the above figure, you may see this add-in contains several SECTIONS A-F.</p>
 <p>SECTION A: Name for this add-in.</p>
 <p>SECTION B: Short introduction to this add-in.</p>
@@ -129,6 +129,7 @@ Currently, there are several built-in databases, standard, chemical, unit, water
 
 <p>If you don't think the built-in databases are good enough for you, don't worry, you can create your own databases, and creating one is easy.</p>
 <p>Within minutes, you can define a new database using tools provided by text-effect-autocorrection add-in. Check the "user defined" checkbox in SECTION C(see the above figure), and you will see it.You can also export your defined database and save it for later use.</p>
+<p>It is recommended that you read '4.4 How database works' to have a basic understanding of the idea of a database.
 <ul>
 <li>+ button : add a new record to your database</li>
 <li>- button  : delete the last record from your database</li>
@@ -137,15 +138,15 @@ Currently, there are several built-in databases, standard, chemical, unit, water
 </ul>
 <h4>
 <a  class="anchor"  aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3 User provided database</h4>
-<p>A great thing of this add-in is that you can provide your own database, and share it with anyone else if you'd like to.</p>
-<p>Check the "user provided" checkbox, and a textarea which can accept your database will appear.</p>
+<p>A great thing of this add-in is that you can provide your own database. You can also share your database with anyone else if you'd like to.</p>
+<p>Check the "user provided" checkbox in SECTION C(see the above figure), and a textarea which can accept your database will appear.</p>
 <p>You may either use the database exported from 'user-defined database tools' or write one by your own. The only thing that you need to do is to delete "userDefined" from the exported database and type in "userProvided" if you choose to use an exported database.</p>
-<p><table><tr><th>a<span style="color:yellow;background:grey">a</span>a</th><th>----></th></th><th>bb</th></tr></table></p>
+<p><table><tr><th>{<span style="color:yellow;background:grey">"userDefined"</span>:[{"s1":"water","s1Opt":{},"s2":"at","s2Opt":{},"to":"@"}]}</th><th>></th></th><th>{<span style="color:yellow;background:grey">"userProvided"</span>:[{"s1":"water","s1Opt":{},"s2":"at","s2Opt":{},"to":"@"}]}</th></tr></table></p>
 <h4>
 <a  class="anchor"  aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.4 How database works</h4>
 <p>A database is a javascript object or JSON file, Microsoft Word will search strings match certain pattern and replace them to correct forms.</p>
-<p>A user provided database should follow this <a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/dbSchema.json">schema</a>. Note, this schema is still incomplete, we are still working on it.</p>
-<p>Here are some examples, and these examples are in javascript object format. If you are not familiar with javascript or json, you may skip this section.</p>
+<p>If you chooes to write a database completely on your own. Your database should follow this <a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/dbSchema.json">schema</a>. 'Exported' database already followed this schema. Note, this schema is still incomplete, we are still improving it.</p>
+<p>Here are some examples, and these examples are in javascript object format.</p>
 <p><b>Example 0</b></p>
   <ul>
     <li><code> {s1:"cod",s1Opt:{},to:"COD"}</code></li>
