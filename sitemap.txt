@@ -1,4 +1,4 @@
-http://help.wtsolutions.cn/text-effect-autocorrection/index.html
-http://help.wtsolutions.cn/text-effect-autocorrection/index-zh.html
-https://help.wtsolutions.cn/text-effect-autocorrection/index.html
-https://help.wtsolutions.cn/text-effect-autocorrection/index-zh.html
+http://docs.wtsolutions.cn/text-effect-autocorrection/index.html
+http://docs.wtsolutions.cn/text-effect-autocorrection/index-zh.html
+https://docs.wtsolutions.cn/text-effect-autocorrection/index.html
+https://docs.wtsolutions.cn/text-effect-autocorrection/index-zh.html
