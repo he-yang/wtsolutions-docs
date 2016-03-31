@@ -94,7 +94,14 @@
 	<li>在完成上述步骤之后, 在插入选项卡中，你可以选择 我的加载项中的 共享文件夹，然后找到本加载项并加载就可以了。</li>
 </ol>
 <h4><a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2 使用插件</h4>
-
+<img src="images/cn-screenshot-sections.png" />
+<p>上图显示本插件可以被分为 A-F 区域.</p>
+<p>区 A: 插件名</p>
+<p>区 B: 插件简单介绍</p>
+<p>区 C: 数据库区</p>
+<p>区 D: 开始按钮区. 点击开始按钮，插件开始纠正</p>
+<p>区 E: 出错信息区. 如果插件出错，错误信息会显示在这里</p>
+<p>区 F: 版权、作者信息、版本号等</p>
 <h3>
 <a id="databases" class="anchor" href="#databases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.数据库</h3>
 
@@ -106,7 +113,8 @@
   <li>化学库</li>
   <li>水和废水工程库</li> 
   <li>----自定义数据库---</li>
-  <li>用户定义数据库</li>
+  <li>用户自定义数据库</li>
+  <li>----提供数据库---</li>
   <li>用户提供数据库</li>
 </ul>
 
@@ -115,13 +123,30 @@
 <p>内建的数据库包括一些常用的库，比如常用的计量单位的库，常用的化学式的库及水和废水库，具体的数据库文件 <a href="https://github.com/he-yang/text-effect-autocorrection/tree/master/databases">点这里</a></p>
 <h4>
 <a id="Create your own database" class="anchor" href="#creat-your-own-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.2自定义数据库</h4>
-<p>本插件支持自定义数据库，如果你愿意，还可以将自定义的数据库共享给其他人。</p>
-<p>如果你认为内建的数据库不能够完全满足你的需求，现在就开始自己建立自己的数据库吧，一切都很简单。</p>
-<p>自建数据库有2种方法</p>
-<p>1.使用本插件提供的“用户定义数据库”工具，动动鼠标，敲敲键盘就可以做到。勾选上“用户自定义数据库“，你就可以看到这个工具。这个工具还有导出功能，把你这次定义的数据库导出，下次还可以使用。</p>
-<p>2.使用本插件提供的“用户提供数据库”功能，使用你自己编写的数据库。你编写的数据库 必须符合这个json schema规范(<a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/dbSchema.json">点这里</a>)，否则就会出错哦。注意，我们现在还在不断的改进这个规范。</p>
 
-<h4><a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3数据库的工作方式及基本原理</h4>
+<p>如果你觉得内建数据库不够强大，你也可以根据自己的实际需求自定义自己的数据库，自定义数据库非常简单。</p>
+<p>使用本插件提供的自定义数据库工具，分分钟就可完成。勾选上C区的“用户自定义数据库”（见上图），你就可以看见这个工具了。你还可以用这个工具导出你自定义的数据库，下次还可以使用。</p>
+<ul>
+<li>+ button : 向你自定义的数据库增加一条记录</li>
+<li>- button : 删除自定义数据库中的最后一条记录</li>
+<li>> button : 导出自定义数据库</li>
+<li>< button : 隐藏导出的数据库，注意：数据库还是在系统中的，并没有被删除/li>
+</ul>
+
+
+
+<h4>
+<a id="Create your own database" class="anchor" href="#creat-your-own-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3提供数据库</h4>
+
+
+<p>本插件接受用户提供数据库，如果你愿意，还可以将你的数据库共享给其他人。</p>
+<p>使用本插件提供的“用户提供数据库”功能，使用你自己编写的数据库。你编写的数据库 必须符合这个json schema规范(<a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/dbSchema.json">点这里</a>)，否则就会出错哦。注意，我们现在还在不断的改进这个规范。</p>
+<p>勾选上“用户提供数据库”，然后你就会看见一个文本框，将你的数据库放到这个文本框中就可以了。</p>
+<p>你可以自己写数据库文件，也可以用“用户自定义数据库工具”导出的数据库，如果你采用导出的数据库，只需要将"userDefined"这几个字改成"userProvided"就可以了。</p>
+
+
+
+<h4><a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.4 数据库的工作方式及基本原理</h4>
 <p>本插件的数据库是javascript的object格式或json格式, Word会搜索数据库中列出的项，然后替换成合适的形式或内容。</p>
 <p>下列的例子是采用的javascript Object格式，如果你分不清什么是javascript，什么是object，什么是json，那么你可以选择跳过此章节。</p>
 <p><b>例 0</b></p>
