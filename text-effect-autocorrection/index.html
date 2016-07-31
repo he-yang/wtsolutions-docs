@@ -26,7 +26,7 @@
     <section class="main-content">
       <h3>
 <a id="Introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.Introduction</h3>
-<p>Text-Effect-AutoCorrection is a Microsoft Word add-In and it can correct sub/super scripts, upper/lower case typos using built-in/user-provided databases. What this add-in acturally do is simply find and replace.</p>
+<p>Text-Effect-AutoCorrection is a Microsoft Word add-In and it can correct sub/super scripts, upper/lower case typos using built-in/user-defined/user-provided databases. Theoretically, what this add-in acturally do is simply find and replace.</p>
 <table align="center">
 	<tbody>
 		<tr>
@@ -94,13 +94,13 @@
 <h4>
 <a id="useaddin" class="anchor" ><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2 Use the add-in</h4>
 <img src='images/en.jpg' alt='text-effect-autocorrection screenshot'/>
-<p>From the above figure, you may see this add-in contains several SECTIONS A-F.</p>
+<p>From the above figure of version 1.3.0.0, you may see this add-in contains SECTIONS A-F.</p>
 <p>SECTION A: Name for this add-in.</p>
 <p>SECTION B: Short introduction to this add-in.</p>
 <p>SECTION C: Database section.</p>
 <p>SECTION D: Go button section. This add-in will start running when you click on this button.</p>
-<p>SECTION E: Error message section. Error message will appear here if there is one.</p>
-<p>SECTION F: Copyrights, user and version information of this add-in.</p>
+<p>SECTION E: Error message section. Error message will appear here if there is one.(SECTION maintained but error message will not appear in this area per Version 1.3.1.0.</p>
+<p>SECTION F: Copyrights, author and version information of this add-in.</p>
 
 
 <h3>
@@ -122,7 +122,7 @@
 <p></p>
 <h4>
 <a  class="anchor"  aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.1 Built-in database</h4>
-Currently, there are several built-in databases, standard, chemical, unit, water and wastewater engineering. Built-in Database source file can be found <a href="https://github.com/he-yang/text-effect-autocorrection/tree/master/databases">here</a>
+Currently, there are several built-in databases, standard, chemical, unit, water and wastewater engineering. Built-in Database source file can be found <a href="https://github.com/he-yang/text-effect-autocorrection/tree/master/databases" target="_blank">here</a>
 <h4>
 <a  class="anchor"  aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.2 User defined database</h4>
 
@@ -140,8 +140,8 @@ Currently, there are several built-in databases, standard, chemical, unit, water
 <a  class="anchor"  aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3 User provided database</h4>
 <p>A great thing of this add-in is that you can provide your own database. You can also share your database with anyone else if you'd like to.</p>
 <p>Check the "user provided" checkbox in SECTION C(see the above figure), and a textarea which can accept your database will appear.</p>
-<p>You may either use the database exported from 'user-defined database tools' or write one by your own. The only thing that you need to do is to delete "userDefined" from the exported database and type in "userProvided" if you choose to use an exported database.</p>
-<p><table><tr><th>{<span style="color:yellow;background:grey">"userDefined"</span>:[{"s1":"water","s1Opt":{},"s2":"at","s2Opt":{},"to":"@"}]}</th><th>></th></th><th>{<span style="color:yellow;background:grey">"userProvided"</span>:[{"s1":"water","s1Opt":{},"s2":"at","s2Opt":{},"to":"@"}]}</th></tr></table></p>
+<p>You may either use the database exported from 'user-defined database tools' or write one by your own. The only thing that you need to do is to copy and paste the  exported database.</p>
+
 <h4>
 <a  class="anchor"  aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.4 How database works</h4>
 <p>A database is a javascript object or JSON file, Microsoft Word will search strings match certain pattern and replace them to correct forms.</p>
@@ -286,27 +286,32 @@ Currently, there are several built-in databases, standard, chemical, unit, water
 
 <h5>Key5:to | String type | Mandatory</h5>
 <p>Replace "s1" or "s2" with "to" or format "s1" or "s2" as super/subscript.</p>
-<p>Note, "superscript" and "subscript" are reserved strings in this add-in.</p>
+<p>Note, "$superscript" and "$subscript" are reserved strings in this add-in.</p>
 <p>Example to.1</p>
 <p><code> {s1:"[dD][nN][0-9]", s1Opt:{matchWildCards:true}, s2:"dn", s2Opt:{matchCase:false}, to:"DN"}</code></p>
 <p><code> dn100 ---> DN100 | Dn20 ---> DN20</code></code></code></p>
 <p>Add-in will first search for "[dD][nN][0-9]" using wildcards match, if found, this add-in will then search for "dn" case insensitively from previously found results, and replace it with "DN".</p>
 <p></p>
 <p>Example to.2</p>
-<p><code> {s1:"m3/d", s1Opt:{}, s2:"3", s2Opt:{}, to:"superscript"}</code></p>
+<p><code> {s1:"m3/d", s1Opt:{}, s2:"3", s2Opt:{}, to:"$superscript"}</code></p>
 <p><code> m3/d ---> m<sup>3</sup>/d</code></code></code></p>
 <p>Add-in will first search for "m3/d", if found, this add-in will then search for "3" from previously found results, and format "3" as "superscript".</p>
-<p>Note, currently, only "subscript" and "superscripts" are accepted format indicator, other strings will be treated as normal strings and works as Example to.1 .</p></p>
+<p>Note, currently, only "$subscript" and "$superscript" are accepted format indicator, other strings will be treated as normal strings and works as Example to.1 .</p></p>
 <p></p>
 
-  
+<h3>
+<a id="improvement" class="anchor" href="#improvement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.Improvement Plan</h3>
+
+<p> In order to improve the performance of this add-in and users' experience, we hope that you could share your defined database with everyone else . If "participate improvement plan" checkbox in SECTION B checked, this add-in will automatically send your defined database to text-effect-autocorrection server which later may become part of the built-in databases. </p>
+<p> Note, by default, "participate improvement plan" checkbox is checked, meaning you are participating this plan by default. If you don't want to participate in this plan,simply uncheck this checkbox.</p>
   
 
 
 <h3>
 <a id="privacy" class="anchor" href="#privary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.Privacy</h3>
 
-<p>Text-Effects-AutoCorrection Add-In will not collect and/or transmit user information. As the Text-Effects-AutoCorrection is an open-source project, you may check source code if you want, click the above "view on Github" button for more inforamtion.Baidu Tongji (similar to Google analytics) scripts is added for website analytics. </p>
+<p>Text-Effects-AutoCorrection Add-In will not collect and/or transmit user's document content. As the Text-Effects-AutoCorrection is an open-source project, you may check source code if you want, click the above "view on Github" button for more information.Baidu Tongji (similar to Google analytics) scripts is added for website analytics. </p>
+<p>If you choose to participate in the improvement plan, this add-in will collect the database you defined, and store in the server and later may become part of built-in databases. Read the previous section for more information about this plan.</p>
 
  <h3>
 <a id="disclaimer" class="anchor" href="#disclaimer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.Disclaimer</h3>
@@ -325,8 +330,32 @@ Currently, there are several built-in databases, standard, chemical, unit, water
 
 
 
-<p>Still have questions? Please report <a href="https://github.com/he-yang/text-effect-autocorrection/issues">here</a></p>
+<p>Still have questions? Please report <a href="https://github.com/he-yang/text-effect-autocorrection/issues">here</a>. You can also comment below.</p>
 
+<div id="disqus_thread"></div>
+<script>
+
+
+var disqus_config = function () {
+    this.page.url = "https://docs.wtsolutions.cn/text-effect-autocorrection/index.html";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = "Docs-WTSolutions-tea-index"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//docs-wtsolutions.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                    
+
+<h3>
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>9.Change Log</h3>
+<ul>
+	<li>Version 1.3.1.0 | introduce improvement plan and sweet alert for better alert, add user-defined database autosave function and modification count</li>
+</ul>
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/he-yang/text-effect-autocorrection">Text-effect-autocorrection</a> is maintained by <a href="https://github.com/he-yang">he-yang</a>.</span>
 
