@@ -25,7 +25,7 @@
     <section class="main-content">
 
 
-	    <p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p>
+	    <p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p>
       <h3>
 <a id="Introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.简介</h3>
 <p>根据内建数据库自动修正文本中字母大小写、上下标等文字效果错误。同时，本插件还支持自定义数据库。本插件的基本原理是查找与替换。</p>
@@ -152,22 +152,21 @@
 
 <h4><a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.4 数据库的工作方式及基本原理</h4>
 <p>本插件的数据库是javascript的object格式或json格式, Word会搜索数据库中列出的项，然后替换成合适的形式或内容。</p>
-<p>下列的例子是采用的javascript Object格式。</p>
 <p><b>例 0</b></p>
   <ul>
-    <li><code> {s1:"cod",s1Opt:{},to:"COD"}</code></li>
-    <li><code> {s1:"[dD][nN][0-9]", s1Opt:{matchWildCards:true}, s2:"dn", s2Opt:{matchCase:false}, to:"DN"}</code> </li>
+    <li><code> {"s1":"cod","s1Opt":{},"to":"COD"}</code></li>
+    <li><code> {"s1":"[dD][nN][0-9]", "s1Opt":{"matchWildCards":true}, "s2":"dn", "s2Opt":{"matchCase":false}, "to":"DN"}</code> </li>
   </ul>
  <p>例 0,你可以看到5个keys : "s1" "s1Opt" "s2" "s2Opt" "to".</p> 
 <h5>Key1:s1(search 1) | String 类型 | 必选</h5>
 <p>本插件所列出的这些选项与Word自带的搜索选项相同. 需要注意的是, 有一些选项, matchCase（匹配大小写） 选中时，matchWildCards（使用通配符） 则无法选择，这一点与Word本身自带的选项勾选规则是相同的. </p>
-<p><b>例 s1.1</b><code> {s1:"cod",s1Opt:{matchCase:true},to:"COD"}</code></p>
+<p><b>例 s1.1</b><code> {"s1":"cod","s1Opt":{"matchCase":true},"to":"COD"}</code></p>
 <p>例 s1.1, 插件首先会查找小写的"cod" 然后将之替换成 "COD", 需要注意的是，本例中 "cOd" 和 "Cod" 不会被替换。</p>
 <h5>Key2:s1Opt(search 1 options) | Object 类型 | 必选</h5>
 <p></p>
-<p><b>例 s1Opt.1</b><code>{s1:"cod",s1Opt:{matchCase:false},to:"COD"}</code></p>
+<p><b>例 s1Opt.1</b><code>{"s1":"cod","s1Opt":{"matchCase":false},"to":"COD"}</code></p>
 <p>例 s1Opt.1, 插件会不区分大小写的去查找文中的"cod" 然后将之替换成"COD", 需要注意的是 本例中"cOd" 和 "Cod" 也会被替换。</p>
-<p><b>例 s1Opt.2</b><code>{s1:"[cC][oO][dD]",s1Opt:{matchWildCards:true},to:"COD"}</code></p>
+<p><b>例 s1Opt.2</b><code>{"s1":"[cC][oO][dD]","s1Opt":{"matchWildCards":true},"to":"COD"}</code></p>
 <p>例 s1Opt.2 与 例 s1Opt.1 类似, 插件会查找 "cod" 然后将之替换成 "COD" ，但是方式不同. 本例利用的是Word的通配符搜索功能. 如果你想要更多的了解Word通配符, 可查看<a href="https://support.office.com/zh-cn/article/%E4%BD%BF%E7%94%A8%E9%80%9A%E9%85%8D%E7%AC%A6%E6%9F%A5%E6%89%BE%E6%88%96%E6%9B%BF%E6%8D%A2%E6%96%87%E6%9C%AC-610E37DC-BB2F-4A8B-8FA5-AA991160EAFB?omkt=zh-CN&ui=zh-CN&rs=zh-CN&ad=CN">这里</a>. </p>
 <p></p>
 
@@ -285,7 +284,7 @@
 <h5>Key3:s2 | String 类型 | 可选</h5>
 <p>插件最先搜索 "s1" ，采用的选项是 "s1Opt" , 如果 "s2" key 也存在 , 插件会从"s1"的搜索结果中再去搜索 "s2". </p>
 <p>例 s2.1</p>
-<p><code> {s1:"[dD][nN][0-9]", s1Opt:{matchWildCards:true}, s2:"dn", s2Opt:{matchCase:false}, to:"DN"}</code></p>
+<p><code> {"s1":"[dD][nN][0-9]", "s1Opt":{matchWildCards:true}, "s2":"dn", "s2Opt":{matchCase:false}, "to":"DN"}</code></p>
 <p>插件首先会去查找 "[dD][nN][0-9]" 通配符, 如果找到，插件会在刚刚的搜索结果中去忽略大小写的查找 "dn" , 然后替换成"DN".</p>
 <p></p>
 <h5>Key4:s2Opt | Object 类型 | 可选</h5>
@@ -295,12 +294,12 @@
 <p>替换 "s1" 成"to"，当"s2"存在时，则将"s2"替换成 "to"，或者 将 "s1" 或者 "s2" 设成上标superscript/下标 subscript格式。</p>
 <p>注意，$superscript和$subscript在本插件中是保留字符串，当你使用到这两个字符串时应特别注意。</p>
 <p>例 to.1</p>
-<p><code> {s1:"[dD][nN][0-9]", s1Opt:{matchWildCards:true}, s2:"dn", s2Opt:{matchCase:false}, to:"DN"}</code></p>
+<p><code> {"s1":"[dD][nN][0-9]", "s1Opt":{"matchWildCards":true}, "s2":"dn", "s2Opt":{"matchCase":false}, "to":"DN"}</code></p>
 <p>效果<code> dn100 ---> DN100 | Dn20 ---> DN20</code></code></code></p>
 <p>插件会首先查找 "[dD][nN][0-9]" 通配符, 如果找到，会在找到的结果当中去 再次忽略大小写的去查找"dn" 然后替换成 "DN".</p>
 <p></p>
 <p>例 to.2</p>
-<p><code> {s1:"m3/d", s1Opt:{}, s2:"3", s2Opt:{}, to:"$superscript"}</code></p>
+<p><code> {"s1":"m3/d", "s1Opt":{}, "s2":"3", s2Opt:{}, "to":"$superscript"}</code></p>
 <p>效果<code> m3/d ---> m<sup>3</sup>/d</code></code></code></p>
 <p>插件首先会去查找 "m3/d", 如果找到了, 插件会从找到的结果当中去查找 "3" 然后将 "3" 的格式调整成superscript上标.</p>
 <p>注意：只有 "$subscript" 和 "$superscript" 可以被接受作为格式的指示文本, 其他的文本将会当作普通文本对待，如 例 to.1 .</p></p>
