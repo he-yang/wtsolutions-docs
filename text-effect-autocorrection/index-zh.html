@@ -284,7 +284,7 @@
 <h5>Key3:s2 | String 类型 | 可选</h5>
 <p>插件最先搜索 "s1" ，采用的选项是 "s1Opt" , 如果 "s2" key 也存在 , 插件会从"s1"的搜索结果中再去搜索 "s2". </p>
 <p>例 s2.1</p>
-<p><code> {"s1":"[dD][nN][0-9]", "s1Opt":{matchWildCards:true}, "s2":"dn", "s2Opt":{matchCase:false}, "to":"DN"}</code></p>
+<p><code> {"s1":"[dD][nN][0-9]", "s1Opt":{"matchWildCards":true}, "s2":"dn", "s2Opt":{"matchCase":false}, "to":"DN"}</code></p>
 <p>插件首先会去查找 "[dD][nN][0-9]" 通配符, 如果找到，插件会在刚刚的搜索结果中去忽略大小写的查找 "dn" , 然后替换成"DN".</p>
 <p></p>
 <h5>Key4:s2Opt | Object 类型 | 可选</h5>
