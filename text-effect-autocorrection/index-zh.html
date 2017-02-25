@@ -133,7 +133,8 @@
 <p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p>
 <p>如果你觉得内建数据库不够强大，你也可以根据自己的实际需求自定义自己的数据库，自定义数据库非常简单。</p>
 <p>使用本插件提供的自定义数据库工具，分分钟就可完成。勾选上C区的“用户自定义数据库”（见上图），你就可以看见这个工具了。你还可以用这个工具导出你自定义的数据库，下次还可以使用。</p>
-<ul>
+<p>自定义库助手 <a href='http://s.wtsolutions.cn/tea-define-db.js' target='_blank'>http://s.wtsolutions.cn/tea-define-db.js</a></p>
+	    <ul>
 <li>+ button : 向你自定义的数据库增加一条记录</li>
 <li>- button : 删除自定义数据库中的最后一条记录</li>
 <li>> button : 导出自定义数据库</li>
@@ -147,12 +148,12 @@
 
 
 <p>本插件接受用户提供数据库。</p>
-
+	    <p>自定义库助手 <a href='http://s.wtsolutions.cn/tea-define-db.js' target='_blank'>http://s.wtsolutions.cn/tea-define-db.js</a></p>
 <p>勾选上“用户提供数据库”，然后你就会看见一个文本框，将你的数据库放到这个文本框中就可以了。或者你也可以点击文本框上面的导入文件按钮，选择想要导入的数据库文件，系统会自动导入数据库文件，注意该文件应为纯文本格式并以UTF-8编码方式进行编码。</p>
 <p>你可以自己写数据库文件，也可以用“用户自定义数据库工具”导出的数据库，如果你采用导出的数据库，直接复制粘贴就可以了。</p>
-
+<p>自定义库助手 <a href='http://s.wtsolutions.cn/tea-define-db.js' target='_blank'>http://s.wtsolutions.cn/tea-define-db.js</a></p>
 <p>使用本插件提供的“用户提供数据库”功能，使用你自己编写的数据库。你编写的数据库 必须符合这个json schema规范(<a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/dbSchema.json">点这里</a>)，否则就会出错哦。注意，我们现在还在不断的改进这个规范。</p>
-
+<p>自定义库助手 <a href='http://s.wtsolutions.cn/tea-define-db.js' target='_blank'>http://s.wtsolutions.cn/tea-define-db.js</a></p>
 
 <h4><a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.4 数据库的工作方式及基本原理</h4>
 <p>本插件的数据库json格式, Word会搜索数据库中列出的项，然后替换成合适的形式或内容。</p>
@@ -306,7 +307,7 @@
 <p><code> {"s1":"m3/d", "s1Opt":{}, "s2":"3", s2Opt:{}, "to":"$superscript"}</code></p>
 <p>效果<code> m3/d ---> m<sup>3</sup>/d</code></code></code></p>
 <p>插件首先会去查找 "m3/d", 如果找到了, 插件会从找到的结果当中去查找 "3" 然后将 "3" 的格式调整成superscript上标.</p>
-<p>注意：只有 "$subscript" 和 "$superscript" 可以被接受作为格式的指示文本, 其他的文本将会当作普通文本对待，如 例 to.1 .</p></p>
+<p>注意：只有 "$subscript" 、 "$superscript" 、"$bold"（加粗）、"$italic"（斜体）可以被接受作为格式的指示文本, 其他的文本将会当作普通文本对待，如 例 to.1 .</p></p>
 <p></p>
 
 
