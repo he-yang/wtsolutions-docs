@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="baidu-site-verification" content="Nq1r6bK7kR" />
+    <meta name="google-site-verification" content="yl1DuniDzb9FMXWXN9J3ZI8MLMkMJPe6yNIPO8SCqZY" />
+	 
+    <title>Text-effect-autocorrection by he-yang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <!--<link href='https://fonts.useso.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>-->
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">文字效果自动纠正</h1>
+      <h2 class="project-tagline">一款Word文字效果自动纠正插件</h2>
+      <a href="http://blog.wtsolutions.cn" class="btn">WTSolutions博客</a>
+      <a href="https://github.com/he-yang/text-effect-autocorrection" class="btn">View on GitHub</a>
+      <a href="https://github.com/he-yang/text-effect-autocorrection/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/he-yang/text-effect-autocorrection/tarball/master" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+
+
+	    <p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p>
+      <h3>
+<a id="Introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.简介</h3>
+<p>根据内建数据库自动修正文本中字母大小写、上下标等文字效果错误。同时，本插件还支持自定义数据库。本插件的基本原理是查找与替换。</p>
+<table align="center">
+	<tbody>
+		<tr>
+			<th>原文</th>
+			<td>cod</td>
+			<td>H2O</td>
+			<td>m3/d</td>
+			<td>PO43-</td>
+			<td>dn300</td>
+			<td>5KW</td>
+			<td>CODMn</td>
+			<td>iphone</td>
+			<td>Escherichia coli</td>
+</tr>
+		<tr>
+			<th>修正后</th>
+			<td>COD</td>
+			<td>H<sub>2</sub>O</td>
+			<td>m<sup>3</sup>/d</td>
+			<td>PO<sub>4</sub><sup>3-</sup></td>
+			<td>DN300</td>
+			<td>5kW</td>
+			<td>COD<sub>Mn</sub></td>
+			<td><b>iPhone</b></td>
+			<td><i>Escherichia coli </i></td>
+		</tr>
+	</tbody>
+</table>
+
+<h3>
+<a id="Requirement" class="anchor" href="#Requirement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.使用条件</h3>
+<p>Windows系统的Word 2016 可以正常使用, Word 2013或更低版本不支持</p>
+<p>Mac系统的Word还没有经过测试。</p>
+<p>Online版本的Word已经确定不支持,希望以后可以支持Word Online。</p>
+
+<h3>
+<a id="Usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.使用方法</h3>
+<h4><a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1 获取插件</h4>
+<p> 获取方法有2种</p>
+<p> A. 通过微软Office商店（推荐给所有用户） </p>
+<p>链接<a href='https://store.office.com/app.aspx?assetid=WA104379996&appredirect=false&omkt=zh-CN' target="_blank">https://store.office.com/app.aspx?assetid=WA104379996&appredirect=false&omkt=zh-CN</a></p>
+<ol>
+  <li>点击上面链接，打开本插件在微软Office商店的页面</li>
+  <li>在页面右上角点击登录</li>
+  <li>使用你的微软体系的账户进行登录，@msn.com, @live.com ,@live.cn, @outlook.com 等等这些都是微软体系账户，如果没有微软账户可以到outlook.com去注册一个</li>
+  <li>找到页面上的“添加”按钮，并点击</li>
+  <li>页面会提示说已经成功添加这个插件到你的微软账户</li>
+  <li>打开电脑上的 Microsoft Word 2016(或更高级版本)</li>
+  <li>打开一个文档或新建一个文档</li>
+  <li>在Word的右上角点击登录</li>
+  <li>用你刚刚用到的微软体系的账户进行登录</li>
+  <li>在Word的“插入”标签页内找到 "我的加载项"，如果“我的加载项”为灰色，无法点击，注意将文件保存成docx格式而不是doc格式</li>
+  <li>此刻你应当看到“文字效果自动纠正”插件</li>
+  <li>如果你看不到这个插件，请检查是不是正确的登录了微软账户，或者查看自己是不是在使用本插件不支持的Word版本</li>
+  <li>双击这个插件，就可以使用这个插件啦</li>
+</ol>
+<p> B. 通过网络共享文件夹（推荐给高级用户或开发者）</p>
+<ol>
+	<li>共享一个文件夹，如 <code>\\MyShare\MyManifests</code>.</li>
+	<li>将<a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/text-effects-autocorrection.xml">manifest file</a> 放到共享文件夹中</li>
+	<li>在Word 2016或更高级版本中新建或打开一个文档</li>
+	<li>在文件标签页中找到选项。</li>
+	<li>找到信任中心并点击信任中心设置按钮。</li>
+	<li>选择信任加载项目录</li>
+	<li>在目录地址中, 填入 步骤1中的共享文件夹的地址, 然后加入到目录地址中.</li>
+	<li>选中 显示 选框, 并点击确定.</li>
+	<li>在完成上述步骤之后, 在插入选项卡中，你可以选择 我的加载项中的 共享文件夹，然后找到本加载项并加载就可以了。</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2 使用插件</h4>
+<img src="images/cn.jpg" alt='text-effect-autocorrection screenshot'/>
+<p>上图显示Verion1.3.0.0插件截图，本插件可以被分为 A-F 区域.</p>
+<p>区 A: 插件名</p>
+<p>区 B: 插件简单介绍</p>
+<p>区 C: 数据库区</p>
+<p>区 D: 开始按钮区. 点击开始按钮，插件开始纠正</p>
+<p>区 E: 出错信息区. 如果插件出错，错误信息会显示在这里，自Version1.3.1.0之后，错误信息将不再此处显示</p>
+<p>区 F: 版权、作者信息、版本号等</p>
+<h3>
+<a id="databases" class="anchor" href="#databases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.数据库</h3>
+
+<p>目前内建的数据库包括</p>
+<ul>
+  <li>---内建数据库----</li>
+  <li>标准库</li>
+  <li>常用单位库</li>
+  <li>化学库</li>
+  <li>烷烃类库</li>
+  <li>环保库</li>
+  <li>水和废水工程库</li> 
+	<li>环保</li>
+  <li>----自定义数据库---</li>
+  <li>用户自定义数据库</li>
+  <li>----提供数据库---</li>
+  <li>用户提供数据库</li>
+</ul>
+
+<p></p>
+<h4><a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.1内建数据库</h4>
+<p>内建的数据库包括一些常用的库，比如常用的计量单位的库，常用的化学式的库及水和废水库，具体的数据库文件 <a href="https://github.com/he-yang/text-effect-autocorrection/tree/master/databases">点这里</a>。这里更新不是很及时，可加入文字效果自动纠正的Q群互动交流获取最新库。</p>
+<h4>
+<a id="Create your own database" class="anchor" href="#creat-your-own-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.2自定义数据库</h4>
+<p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p>
+<p>如果你觉得内建数据库不够强大，你也可以根据自己的实际需求自定义自己的数据库，自定义数据库非常简单。</p>
+<p>使用本插件提供的自定义数据库工具，分分钟就可完成。勾选上C区的“用户自定义数据库”（见上图），你就可以看见这个工具了。你还可以用这个工具导出你自定义的数据库，下次还可以使用。</p>
+<p>自定义库助手 <a href='http://s.wtsolutions.cn/tea-define-db.html' target='_blank'>http://s.wtsolutions.cn/tea-define-db.html</a></p>
+	    <ul>
+<li>+ button : 向你自定义的数据库增加一条记录</li>
+<li>- button : 删除自定义数据库中的最后一条记录</li>
+<li>> button : 导出自定义数据库</li>
+<li>< button : 隐藏导出的数据库，注意：数据库还是在系统中的，并没有被删除，只是不显示了</li>
+</ul>
+
+
+
+<h4>
+<a id="Create your own database" class="anchor" href="#creat-your-own-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3提供数据库</h4>
+
+
+<p>本插件接受用户提供数据库。</p>
+	    <p>自定义库助手 <a href='http://s.wtsolutions.cn/tea-define-db.html' target='_blank'>http://s.wtsolutions.cn/tea-define-db.html</a></p>
+<p>勾选上“用户提供数据库”，然后你就会看见一个文本框，将你的数据库放到这个文本框中就可以了。或者你也可以点击文本框上面的导入文件按钮，选择想要导入的数据库文件，系统会自动导入数据库文件，注意该文件应为纯文本格式并以UTF-8编码方式进行编码。</p>
+<p>你可以自己写数据库文件，也可以用“用户自定义数据库工具”导出的数据库，如果你采用导出的数据库，直接复制粘贴就可以了。</p>
+<p>自定义库助手 <a href='http://s.wtsolutions.cn/tea-define-db.html' target='_blank'>http://s.wtsolutions.cn/tea-define-db.html</a></p>
+<p>使用本插件提供的“用户提供数据库”功能，使用你自己编写的数据库。你编写的数据库 必须符合这个json schema规范(<a href="https://github.com/he-yang/text-effect-autocorrection/blob/master/dbSchema.json">点这里</a>)，否则就会出错哦。注意，我们现在还在不断的改进这个规范。</p>
+<p>自定义库助手 <a href='http://s.wtsolutions.cn/tea-define-db.html' target='_blank'>http://s.wtsolutions.cn/tea-define-db.html</a></p>
+
+<h4><a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.4 数据库的工作方式及基本原理</h4>
+<p>本插件的数据库json格式, Word会搜索数据库中列出的项，然后替换成合适的形式或内容。</p>
+<p><b>例 0</b></p>
+  <ul>
+    <li><code> {"s1":"cod","s1Opt":{},"to":"COD"}</code></li>
+    <li><code> {"s1":"[dD][nN][0-9]", "s1Opt":{"matchWildCards":true}, "s2":"dn", "s2Opt":{"matchCase":false}, "to":"DN"}</code> </li>
+  </ul>
+ <p>例 0,你可以看到5个keys : "s1" "s1Opt" "s2" "s2Opt" "to".</p> 
+<h5>Key1:s1(search 1) | String 类型 | 必选</h5>
+<p>本插件所列出的这些选项与Word自带的搜索选项相同. 需要注意的是, 有一些选项, matchCase（匹配大小写） 选中时，matchWildCards（使用通配符） 则无法选择，这一点与Word本身自带的选项勾选规则是相同的. </p>
+<p><b>例 s1.1</b><code> {"s1":"cod","s1Opt":{"matchCase":true},"to":"COD"}</code></p>
+<p>例 s1.1, 插件首先会查找小写的"cod" 然后将之替换成 "COD", 需要注意的是，本例中 "cOd" 和 "Cod" 不会被替换。</p>
+<h5>Key2:s1Opt(search 1 options) | Object 类型 | 必选</h5>
+<p></p>
+<p><b>例 s1Opt.1</b><code>{"s1":"cod","s1Opt":{"matchCase":false},"to":"COD"}</code></p>
+<p>例 s1Opt.1, 插件会不区分大小写的去查找文中的"cod" 然后将之替换成"COD", 需要注意的是 本例中"cOd" 和 "Cod" 也会被替换。</p>
+<p><b>例 s1Opt.2</b><code>{"s1":"[cC][oO][dD]","s1Opt":{"matchWildCards":true},"to":"COD"}</code></p>
+<p>例 s1Opt.2 与 例 s1Opt.1 类似, 插件会查找 "cod" 然后将之替换成 "COD" ，但是方式不同. 本例利用的是Word的通配符搜索功能. 如果你想要更多的了解Word通配符, 可查看<a href="https://support.office.com/zh-cn/article/%E4%BD%BF%E7%94%A8%E9%80%9A%E9%85%8D%E7%AC%A6%E6%9F%A5%E6%89%BE%E6%88%96%E6%9B%BF%E6%8D%A2%E6%96%87%E6%9C%AC-610E37DC-BB2F-4A8B-8FA5-AA991160EAFB?omkt=zh-CN&ui=zh-CN&rs=zh-CN&ad=CN">这里</a>. </p>
+<p></p>
+
+
+
+<p>
+	<table>
+		<caption>选项</caption>
+		<tbody>
+			<tr class="header">
+				<th align="left">
+					选项 Key
+				</th>
+				<th align="left">
+					选项 Value
+				</th>
+				<th align="left">
+					描述
+				</th>
+			</tr>
+			<tr class="odd">
+				<td align="left">
+					ignorePunct
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					获取或设置指示是否忽略单词之间的所有标点符号的值。对应于"查找和替换"对话框中的"忽略标点符号"复选框。
+				</td>
+			</tr>
+			<tr class="even">
+				<td align="left">
+					ignoreSpace
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					获取或设置指示是否忽略单词之间的所有空格的值。对应于"查找和替换"对话框中的"忽略空格字符"复选框。
+				</td>
+			</tr>
+			<tr class="odd">
+				<td align="left">
+					matchCase
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					获取或设置指示是否执行区分大小写的搜索的值。对应于"查找和替换"对话框（"编辑"菜单）中的"区分大小写"复选框。
+				</td>
+			</tr>
+			<tr class="even">
+				<td align="left">
+					matchPrefix
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					获取或设置指示是否匹配以搜索字符串开头的单词。对应于"查找和替换"对话框中的"匹配前缀"复选框。
+				</td>
+			</tr>
+			<tr class="odd">
+				<td align="left">
+					matchSoundsLike
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					获取或设置指示是否查找读音与搜索字符串类似的单词。对应于"查找和替换"对话框中的"读音类似"复选框。
+				</td>
+			</tr>
+			<tr class="even">
+				<td align="left">
+					matchSuffix
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					获取或设置指示是否匹配以搜索字符串结尾的单词。对应于"查找和替换"对话框中的"匹配后缀"复选框。
+				</td>
+			</tr>
+			<tr class="odd">
+				<td align="left">
+					matchWholeWord
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					获取或设置指示是否只查找整个单词，而不查找长单词的一部分的值。对应于"查找和替换"对话框中的"全字匹配"复选框。
+				</td>
+			</tr>
+			<tr class="even">
+				<td align="left">
+					matchWildCards
+				</td>
+				<td align="left">
+					true/false
+				</td>
+				<td align="left">
+					获取或设置指示搜索是否使用特殊搜索操作符执行的值。对应于"查找和替换"对话框中的"使用通配符"复选框。
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</p>
+
+
+<h5>Key3:s2 | String 类型 | 可选</h5>
+<p>插件最先搜索 "s1" ，采用的选项是 "s1Opt" , 如果 "s2" key 也存在 , 插件会从"s1"的搜索结果中再去搜索 "s2". </p>
+<p>例 s2.1</p>
+<p><code> {"s1":"[dD][nN][0-9]", "s1Opt":{"matchWildCards":true}, "s2":"dn", "s2Opt":{"matchCase":false}, "to":"DN"}</code></p>
+<p>插件首先会去查找 "[dD][nN][0-9]" 通配符, 如果找到，插件会在刚刚的搜索结果中去忽略大小写的查找 "dn" , 然后替换成"DN".</p>
+<p></p>
+<h5>Key4:s2Opt | Object 类型 | 可选</h5>
+<p>参见 Key2:s1Opt, 但此项可选.</p>
+
+<h5>Key5:to | String 类型 | 必选</h5>
+<p>替换 "s1" 成"to"，当"s2"存在时，则将"s2"替换成 "to"，或者 将 "s1" 或者 "s2" 设成上标superscript/下标 subscript格式。</p>
+<p>注意，$superscript和$subscript在本插件中是保留字符串，当你使用到这两个字符串时应特别注意。</p>
+<p>例 to.1</p>
+<p><code> {"s1":"[dD][nN][0-9]", "s1Opt":{"matchWildCards":true}, "s2":"dn", "s2Opt":{"matchCase":false}, "to":"DN"}</code></p>
+<p>效果<code> dn100 ---> DN100 | Dn20 ---> DN20</code></code></code></p>
+<p>插件会首先查找 "[dD][nN][0-9]" 通配符, 如果找到，会在找到的结果当中去 再次忽略大小写的去查找"dn" 然后替换成 "DN".</p>
+<p></p>
+<p>例 to.2</p>
+<p><code> {"s1":"m3/d", "s1Opt":{}, "s2":"3", s2Opt:{}, "to":"$superscript"}</code></p>
+<p>效果<code> m3/d ---> m<sup>3</sup>/d</code></code></code></p>
+<p>插件首先会去查找 "m3/d", 如果找到了, 插件会从找到的结果当中去查找 "3" 然后将 "3" 的格式调整成superscript上标.</p>
+<p>注意：只有 "$subscript" 、 "$superscript" 、"$bold"（加粗）、"$italic"（斜体）可以被接受作为格式的指示文本, 其他的文本将会当作普通文本对待，如 例 to.1 .</p></p>
+<p></p>
+
+
+<h3>
+<a id="improvementplan" class="anchor" href="#improvementplan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.改进计划</h3>
+<p>
+	为了改善用户体验以及增强文字效果自动纠正插件的功能，我们希望您能将您自定义的数据库共享给所有人。如果B区的“参与改进计划”的勾选框被勾选上，那么您自定义的数据库将会被系统收集并储存在我们的数据库中，并可能在将来加入到内建数据库中。
+</p>
+<p>
+	默认，“参与改进计划”勾选框被勾选上，意味着，默认，您是参与改进计划的，如果您不想要参与改进计划，只需要简单的将勾选框取消即可。
+</p>
+  
+  
+
+
+<h3>
+<a id="privacy" class="anchor" href="#privary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.隐私声明</h3>
+
+<p>文字效果自动纠正不会收集也并不传输任何的用户文档内容。本插件开源，如果你想要查看源代码，可以点击 "view on Github" 按钮。本插件内置了百度统计，用于统计插件的适用情况。</p>
+<p>
+	如果您选择参与改进计划，那么您自定义的数据库将会被系统收集并储存在我们的数据库中，并可能在将来加入到内建数据库中。
+</p>
+ <h3>
+<a id="disclaimer" class="anchor" href="#disclaimer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7.免责声明</h3>
+
+<p>用户自行承担使用本插件的任何风险，请在使用前做好文件备份工作。本插件可能仍存在bug。 </p>
+
+
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.作者和贡献者</h3>
+
+<p>文字效果自动纠正插件由<a href="https://github.com/he-yang" class="user-mention">@he-yang</a>制作并维护 , 如果你希望对本插件做出贡献，可以在github上 pull a request (如：完善代码，共享你的自建数据库，翻译等), 或者 你可以选择发送邮件到he.yang at wtsolutions.cn </p>
+<p>感谢@elvescn 对“环保”内置库的贡献。</p>
+<p>感谢@rulingghost 对“烷烃类”内置库的贡献。</p>
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>9.联系</h3>
+
+
+
+<p>如果你发现了bug，或者有一些疑问，可以点击<a href="https://github.com/he-yang/text-effect-autocorrection/issues">here</a>，也可以在下方留言。</p>
+<p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p><p>不会用？加Q群573289691</p>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="d-wtsolutions-tea-zh" data-title="文本效果自动纠正文档" data-url="https://docs.wtsolutions.cn/text-effect-autocorrection/index-zh.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"d-wtsolutions"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/he-yang/text-effect-autocorrection">Text-effect-autocorrection</a> is maintained by <a href="https://github.com/he-yang">he-yang</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?00195c4e233349e692de38c1a46162e4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+  </body>
+</html>
